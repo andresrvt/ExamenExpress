@@ -1,0 +1,61 @@
+<%- include("template/cabecera",{tituloWeb: "Panel de Admnistración"}) %>
+
+<div class="container">
+    <h1>Detalles de la Medicina</h1>
+    <a href="/medicina" class="btn btn-dark">Volver</a>
+  <div class="table-responsive">
+    <table class="table table-primary">
+      <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Tipo</th>
+          <th scope="col">Descripcion</th>
+          <th scope="col">Editar</th>
+          <th scope="col">Eliminar</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% if (arrayMedicina.length > 0) { %> <% arrayMedicina.forEach(medicina=> { %>
+
+        <tr>
+          <th scope="row"><%= medicina.id %></th>
+          <td><%= medicina.nombre %></td>
+          <td><%= medicina.tipo %></td>
+          <td><%= medicina.descripcion %></td>
+          <td><a class="btn btn-primary" href="pokemon/<%= medicina._id %>">Editar</a></td>
+          <td><button class="btn btn-danger btn-sm" data-id="<%= medicina._id %>" onclick="borrar(this)">Eliminar</button></td>
+        </tr>
+        <% })} %>
+      </tbody>
+    </table>
+    
+  </div>
+</div>
+
+<div class="container">
+  <h1>CRUD MongoDB</h1>
+  <a class="btn btn-success" href="/medicina/crear">Crear Medicina</a>
+</div>
+
+<%- include("template/footer") %>
+
+<script>
+  async function borrar(btnEliminar) {
+          console.log(btnEliminar.dataset.id)
+          try{
+            const data = await fetch(`/medicina/${btnEliminar.dataset.id}`,{
+              method:'delete'
+            })
+            const res = await data.json()
+            console.log(res)
+            if (res.estado) {
+              window.location.href ='/medicina'
+            }else{
+              console.log(res)
+            }
+          }catch(error){
+            console.log(error)
+          }
+  }
+</script>
