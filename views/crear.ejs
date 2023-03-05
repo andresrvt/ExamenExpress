@@ -1,7 +1,7 @@
 <%- include("template/cabecera", {tituloWeb: 'Nueva Medicina'}) %>
 <div class="container">
   <h2>Crear nueva Medicina</h2>
-  <form action="/pokemon" class="my-2" method="POST">
+  <form action="/medicina" class="my-2" method="POST">
     <input type="number" placeholder="Id" class="form-control my-2" name="id" />
     <input
       type="text"
@@ -11,7 +11,7 @@
     />
     <input
       type="text"
-      placeholder="Tipo"
+      placeholder="Genotipo"
       class="form-control my-2"
       name="tipo"
     />
@@ -20,6 +20,18 @@
       placeholder="Descripción"
       class="form-control my-2"
       name="descripcion"
+    />
+    <input
+      type="text"
+      placeholder="Floración"
+      class="form-control my-2"
+      name="floracion"
+    />
+    <input
+      type="text"
+      placeholder="THC"
+      class="form-control my-2"
+      name="thc"
     />
     <button type="submit" class="btn btn-dark">Agregar</button>
   </form>

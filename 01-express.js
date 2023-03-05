@@ -21,7 +21,6 @@ app.use("/", require("./router/rutas"));
 app.use("/medicina", require("./router/medicina"));
 
 
-
 const uri = `mongodb+srv://${process.env.USER}:${process.env.PASSWORD}@andresrvt.cjw2wbv.mongodb.net/${process.env.DBNAME}?retryWrites=true&w=majority`;
 
 mongoose.set("strictQuery", true);

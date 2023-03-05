@@ -37,7 +37,7 @@ router.get('/crear',(req,res)=>{
 
 router.get('/:id', async(req,res)=>{
   const id = req.params.id
-  //param.id = pokemon._id
+  //param.id = medicina._id
 
   try{
     const MedicinaDB = await Medicina.findOne({ _id:id})
@@ -66,12 +66,12 @@ router.delete('/:id', async(req,res)=>{
     if (!medicinaDB) {
       res.json({
         estado:false,
-        mensaje:"No se puede eliminar el Pokemon."
+        mensaje:"No se puede eliminar la medicina."
       })
     }else{
       res.json({
         estado:true,
-        mensaje:"Pokemon eliminado."
+        mensaje:"Medicina eliminado."
       })
     }
   }catch(error){

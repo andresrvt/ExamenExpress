@@ -1,7 +1,7 @@
 <%- include("template/cabecera",{tituloWeb: "Detalles"}) %>
 
 <div class="container">
-    <h1>Detalles del Pokemon</h1>
+    <h1>Detalles de la Medicina</h1>
     <% if(error){ %>
     <%= mensaje %>
     <a href="/medicina" class="btn btn-dark">Volver</a>
@@ -30,7 +30,7 @@
           const tipo = formEditar.elements['tipo'].value
           const descripcion = formEditar.elements['descripcion'].value
           const _id = formEditar.dataset.id
-          const data = await fetch(`/pokemon/${_id}`,{
+          const data = await fetch(`/medicina/${_id}`,{
             method: 'PUT',
             headers:{
               'Content-Type':'application/json'
@@ -39,7 +39,7 @@
           })
           const res = await data.json()
           if (res.estado) {
-            window.location.href = '/pokemon'
+            window.location.href = '/medicina'
           }else{
             console.log(res)
           }

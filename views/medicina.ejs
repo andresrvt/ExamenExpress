@@ -9,8 +9,10 @@
         <tr>
           <th scope="col">ID</th>
           <th scope="col">Nombre</th>
-          <th scope="col">Tipo</th>
+          <th scope="col">Genotipo</th>
           <th scope="col">Descripcion</th>
+          <th scope="col">Floración</th>
+          <th scope="col">THC</th>
           <th scope="col">Editar</th>
           <th scope="col">Eliminar</th>
         </tr>
@@ -21,9 +23,11 @@
         <tr>
           <th scope="row"><%= medicina.id %></th>
           <td><%= medicina.nombre %></td>
-          <td><%= medicina.tipo %></td>
+          <td><%= medicina.genotipo %></td>
           <td><%= medicina.descripcion %></td>
-          <td><a class="btn btn-primary" href="pokemon/<%= medicina._id %>">Editar</a></td>
+          <td><%= medicina.floracion %></td>
+          <td><%= medicina.thc %></td>
+          <td><a class="btn btn-primary" href="medicina/<%= medicina._id %>">Editar</a></td>
           <td><button class="btn btn-danger btn-sm" data-id="<%= medicina._id %>" onclick="borrar(this)">Eliminar</button></td>
         </tr>
         <% })} %>

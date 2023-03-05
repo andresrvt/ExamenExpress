@@ -6,8 +6,10 @@ const Schema = mongoose.Schema;
 const medicinaSchema = new Schema({
     id: String,
     nombre: String,
-    tipo: String,
+    genotipo: String,
     descripcion: String,
+    floracion: String,
+    thc: String,
 })
 
 const Medicina = mongoose.model('Medicina',medicinaSchema, "medicina");
